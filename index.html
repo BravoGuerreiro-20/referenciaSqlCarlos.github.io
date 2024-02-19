@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilos.css">
+    <title>Referência SQL</title>
+</head>
+<body>
+    <div class="title" style="margin-bottom: 20px;">
+        <h1>Referêncial SQL</h1>
+        <h3 style="color: white;">Carlos Diogo nº3 12ºITM1 | Colégio de Gaia 2023/2024 | Informática e Tecnologia Multimédia | Implementação e Exploração de Bases de Dados</h3>
+    </div>
+    <div id="container">
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>Introdução</b>
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+            <div class="accordion-body">
+                <p>Neste documento HTML estão documentados vários conceitos/comandos de SQL necessários para a manutenção e o desenvolvimento de uma base de dados.</p>
+                <p><br>A estrutura consiste em vários <i>accordions</i> que contém informação sobre cada comando: o que faz e a sua sintaxe.</p>
+                <p><br><b>Nota: Não estão presentes todos os conceitos e comandos de SQL, apenas o necessário para a realização da disciplina de Implementação e Exploração de Bases de Dados;</b></p>
+            </div>
+        </div>
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>SQL</b> (<i>Structured Query Language</i>)
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p> Ao contrário das linguagens de programação habituais - que são do tipo procedimental - a linguagem SQL é uma linguagem declarativa, isto é, permite ao utilizador expressar aquilo que pretende fazer sem ter de entrar em grandes detalhes sobre a localização física das componentes envolvidas na execução dos comandos especificados pelo utilizador ou pela aplicação.</p>
+                <br>
+                <p> A linguagem SQL é constituída por três sublinguagens:</p>
+                <table>
+                    <thead>
+                        <th>Sublinguagem</th>
+                        <th>Comandos</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th><b>DML</b>(<i>Data Manipulation Language</i>)</th>
+                            <td>SELECT, INSERT, UPDATE, DELETE, etc.</td>
+                        </tr>
+                        <tr>
+                            <th><b>DDL</b>(<i>Data Definition Language</i>)</th>
+                            <td>CREATE, ALTER, DROP, etc.</td>
+                        </tr>
+                        <tr>
+                            <th><b>DCL</b>(<i>Data Control Language</i>)</th>
+                            <td>GRANT, REVOKE, etc.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>DML</b>(<i>Data Manipulation Language</i>)
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p>A DML (Data Manipulation Language) é uma linguagem de manipulação de dados em bases de dados, utilizada para realizar operações como inserção, atualização, recuperação e exclusão de dados em tabelas.</p>
+                <h2><br>Comandos</h2>
+                <h3>SELECT</h3>
+                <p>Comando para selecionar uma ou mais colunas de uma ou mais tabelas.</p>
+                <code>
+                    <b>SELECT</b> coluna1, coluna2, coluna3 <b>FROM</b> tabela1, tabela2;
+                </code>
+                <h3>INSERT</h3>
+                <p>Comando para inserir novos dados em uma tabela.</p>
+                <code>
+                    <b>INSERT INTO</b> tabela (coluna1, coluna2, coluna3) <b>VALUES</b> (valor1, valor2, valor3);
+                </code>
+                <h3>UPDATE</h3>
+                <p>Comando para atualizar dados em uma tabela.</p>
+                <code>
+                    <b>UPDATE</b> tabela <b>SET</b> coluna1 = valor1, coluna2 = valor2, coluna3 = valor3 <b>WHERE</b> condicao;
+                </code>
+                <h3>DELETE</h3>
+                <p>Comando para apagar dados de uma tabela.</p>
+                <code>
+                    <b>DELETE FROM</b> tabela <b>WHERE</b> condicao;
+                </code>
+                <h2><br>Operadores Lógicos</h2>
+                <table>
+                    <thead>
+                        <th>Operador</th>
+                        <th>Exemplo</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>AND</th>
+                            <td>Condição 1 AND Condição 2</td>
+                        </tr>
+                        <tr>
+                            <th>OR</th>
+                            <td>Condição 1 OR Condição 2</td>
+                        </tr>
+                        <tr>
+                            <th>NOT</th>
+                            <td>NOT Condição</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Operadores BETWEEN, IN e LIKE</h2>
+                <p>As condicionais BETWEEN, IN e LIKE são usadas para filtrar os valores de uma coluna.</p>
+                <table>
+                    <thead>
+                        <th>Operador</th>
+                        <th>Exemplo</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>BETWEEN</th>
+                            <td>SELECT * FROM tabela WHERE campo BETWEEN Valor 1 AND Valor 2</td>
+                        </tr>
+                        <tr>
+                            <th>IN</th>
+                            <td>SELECT * FROM tabela WHERE campo IN (Valor 1, Valor 2, ... , Valor n)</td>
+                        </tr>
+                        <tr>
+                            <th>LIKE</th>
+                            <td>SELECT * FROM tabela WHERE campo LIKE '%Valor%'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Ordenação (ORDER BY)</h2>
+                <p>Este comando, que ordena os registos de uma tabela, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>SELECT</b> Campo 1, Campo 2, ... , Campo n, *
+                    <br>
+                    <b>FROM</b> Tabela 1, ... , Tabela k
+                    <br>
+                    <b>ORDER BY</b> Campo 1, Campo 2, ... , Campo n <b>[ASC | DESC]</b>
+                </code>
+                <h2><br>Junção de tabelas (JOIN)</h2>
+                <table>
+                    <thead>
+                        <th><i>Join</i></th>
+                        <th>Descrição</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>INNER JOIN</th>
+                            <td>Retorna registos que possuem valores correspondentes em ambas as tabelas</td>
+                        </tr>
+                        <tr>
+                            <th>LEFT JOIN</th>
+                            <td>Retorna todos os registos da tabela esquerda e os registros correspondentes da tabela direita</td>
+                        </tr>
+                        <tr>
+                            <th>RIGHT JOIN</th>
+                            <td>Retorna todos os registos da tabela direita e os registros correspondentes da tabela esquerda</td>
+                        </tr>
+                        <tr>
+                            <th>FULL JOIN</th>
+                            <td>Retorna todos os registos quando há uma correspondência na tabela esquerda ou direita</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="./types_joins.png" alt="" style="width: 100%;height: 10%;object-fit: contain;">
+                <h2>Funções de agregação</h2>
+                <table>
+                    <thead>
+                        <th>Função</th>
+                        <th>Exemplo</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>MAX</th>
+                            <td>MAX(Campo) - Obtém o valor máximo de um campo</td>
+                        </tr>
+                        <tr>
+                            <th>MIN</th>
+                            <td>MIN(Campo) - Obtém o valor mínimo de um campo</td>
+                        </tr>
+                        <tr>
+                            <th>SUM</th>
+                            <td>SUM(Campo) - Soma todos os valores de um campo</td>
+                        </tr>
+                        <tr>
+                            <th>AVG</th>
+                            <td>AVG(Campo) - Calcula a média dos valores de um campo</td>
+                        </tr>
+                        <tr>
+                            <th>COUNT</th>
+                            <td>COUNT(Campo) - Conta o número de ocorrências diferentes de NULL de um campo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>DDL</b>(<i>Data Definition Language</i>)
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p>
+                    A sublinguagem DDL (Data Definition Language) permite definir e gerenciar a estrutura da base de dados. Os Comandos desta sublinguagem incluem a criação, modificação e remoção de tabelas, índices, e outros elementos estruturais, definindo assim a arquitetura da bse de dados.
+                </p>
+                <h2><br>Comandos</h2>
+                <h3>CREATE DATABASE</h3>
+                <p>Este comando, que serve para a criação de uma base de dados, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>CREATE DATABASE</b> <i>nome</i>
+                </code>
+                <h3><br>DROP DATABASE</h3>
+                <p>Este comando, que serve para apagar uma base de dados, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>DROP DATABASE</b> <i>nome</i>
+                </code>
+                <h3><br>CREATE TABLE</h3>
+                <p>Este comando, que serve para a criação de uma tabela, tem a seguinte sintaxe:</p>
+                <code>
+                 <b>CREATE TABLE</b> <i>nome_tabela</i> (
+                        <i>nome_coluna</i> <i>tipo_dados</i>,
+                                ...              ...,
+                    )
+                </code>
+                <h3><br>ALTER TABLE</h3>
+                <p>Este comando, que serve para alterar os dados de uma tabela, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>ALTER TABLE</b> <i>nome_tabela</i> [ADD <i>nome_coluna</i> <i>tipo_dados</i>]
+                    <b>ALTER TABLE</b> <i>nome_tabela</i> [DROP <i>nome_coluna</i>]
+                    <b>ALTER TABLE</b> <i>nome_tabela</i> [MODIFY <i>nome_coluna</i> <i>tipo_dados</i>]
+                </code>
+                <h3><br>DROP TABLE</h3>
+                <p>Este comando, que serve para apagar uma tabela, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>DROP TABLE</b> <i>nome_tabela</i>
+                </code>
+                <h3><br>TRUNCATE TABLE</h3>
+                <p>Este comando, que serve para apagar todos os registos de uma tabela, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>TRUNCATE TABLE</b> <i>nome_tabela</i>
+                </code>
+                <h2><br>Tipos de Dados</h2>
+                <p>A linguagem SQL admite vários tipos de dados, embora os diversos sistemas possam não os suportar na totalidade.<br></p>
+                <table>
+                    <thead>
+                        <th>Tipo de dados</th>
+                        <th>Descrição</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>CHARACTER(n), CHAR(n)</th>
+                            <td>String de comprimento fixo (n>0)</td>
+                        </tr>
+                        <tr>
+                            <th>CHARACTER, CHAR</th>
+                            <td>Um único caracter</td>
+                        </tr>
+                        <tr>
+                            <th>CHARACTER VARYING(n), VARCHAR(n)</th>
+                            <td>String de comprimento variável (n>0)</td>
+                        </tr>
+                        <tr>
+                            <th>BIT(n), BINARY(n)</th>
+                            <td>String de comprimento fixo (n>0) formada por 1 e 0</td>
+                        </tr>
+                        <tr>
+                            <th>BIT VARYING(n), VARBINARY(n)</th>
+                            <td>String de comprimento variável (n>0) formada por 1 e 0</td>
+                        </tr>
+                        <tr>
+                            <th>NUMERIC, NUMERIC(n), NUMERIC(n, d)</th>
+                            <td>Valor numérico constituído por <i>n</i> dígitos, sinal e <i>d</i> casas decimais (0<=d<=n, n>0)</td>
+                        </tr>
+                        <tr>
+                            <th>DECIMAL, DECIMAL(n), DECIMAL(n, d)</th>
+                            <td>Igual a NUMERIC</td>
+                        </tr>
+                        <tr>
+                            <th>INTEGER, INT, SMALLINT/TINYINT, BIGINT</th>
+                            <td>Valor inteiro com sinal (diferentes precisões)</td>
+                        </tr>
+                        <tr>
+                            <th>FLOAT, REAL, DOUBLE PRECISION</th>
+                            <td>Valor numérico com vírgual flutuante (diferentes precisões)</td>
+                        </tr>
+                        <tr>
+                            <th>DATE</th>
+                            <td>Data</td>
+                        </tr>
+                        <tr>
+                            <th>TIME</th>
+                            <td>Hora</td>
+                        </tr>
+                        <tr>
+                            <th>TIMESTAMP</th>
+                            <td>Intervalo temporal</td>
+                        </tr>
+                        <tr>
+                            <th>XML</th>
+                            <td>Dados em formato XML</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2><br><i>Constraints</i></h2>
+                <p>As constraints são regras a que os valores de uma ou mais colunas devem obedecer.</p>
+                <table>
+                    <thead>
+                        <th>Constraint</th>
+                        <th>Descrição</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>NOT NULL</th>
+                            <td>Impede que o valor de uma coluna seja nulo.</td>
+                        </tr>
+                        <tr>
+                            <th>UNIQUE</th>
+                            <td>Impede que o valor de uma coluna se repita.</td>
+                        </tr>
+                        <tr>
+                            <th>CHECK()</th>
+                            <td>Permite realizar a validação dos dados introduzidos na coluna através da especificação de uma condição.</td>
+                        </tr>
+                        <tr>
+                            <th>PRIMARY KEY</th>
+                            <td>É equivalente às constraints NOT NULL + UNIQUE juntas.</td>
+                        </tr>
+                        <tr>
+                            <th>REFERENCES</th>
+                            <td>Permite fazer a validação das chaves estrangeiras</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>DCL</b>(<i>Data Control Language</i>)
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p>A sublinguagem DCL (Data Control Language) no SQL é usada para controlar o acesso aos dados na base de dados.</p>
+                <br>
+                <h2>Permissões</h2>
+                <p>As permissões que se podem atribuir aos utilizadores são:</p>
+                <br>
+                <table>
+                    <thead>
+                        <th>Permissão</th>
+                        <th>Descrição</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>SELECT</th>
+                            <td>Permite selecionar todas as colunas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>SELECT(lista)</th>
+                            <td>Permite selecionar as colunas especificadas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>INSERT</th>
+                            <td>Permite inserir registos em todas as colunas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>INSERT(lista)</th>
+                            <td>Permite inserir valores na lista das colunas especificadas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>UPDATE</th>
+                            <td>Permite alterar conteúdos em todas as colunas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>UPDATE(lista)</th>
+                            <td>Permite alterar o conteúdo existente na lista das colunas especificadas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>DELETE</th>
+                            <td>Permite apagar registos de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>REFERENCES</th>
+                            <td>Permite referenciar todas as colunas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>REFERENCES(lista)</th>
+                            <td>Permite referenciar a lista das colunas especificadas de uma tabela.</td>
+                        </tr>
+                        <tr>
+                            <th>EXECUTE</th>
+                            <td>Permite executar procedimentos armazenados na base de dados.</td>
+                        </tr>
+                        <tr>
+                            <th>ALL [PRIVILEGES]</th>
+                            <td>Permite atribuir todas as permissões acima especificadas (que façam parte do sistema).</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <h2>Comandos</h2>
+                <h3>CREATE USER</h3>
+                <p>Este comando, que serve para a criação de um utilizador, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>CREATE USER</b> <i>utilizador</i> <b>IDENTIFIED BY</b> <i>password</i>
+                </code>
+                <h3><br>ALTER USER</h3>
+                <p>Este comando, que serve para alterar os dados de um utilizador, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>ALTER USER</b> <i>utilizador</i> <b>IDENTIFIED BY</b> <i>password</i>
+                </code>
+                <p><br>Para alterar a password de um utilizador temos que acrescentar o seguinte comando: </p>
+                <code>
+                    <b>SET PASSWORD FOR</b> <i>utilizador</i> = <b>PASSWORD</b>(<i>password</i>)
+                </code>
+                <h3><br>DROP USER</h3>
+                <p>Este comando, que serve para apagar um utilizador, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>DROP USER</b> <i>utilizador</i>
+                </code>
+                <h3><br>GRANT</h3>
+                <p>Este comando, que serve para atribuir permissões a um utilizador, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>GRANT</b> <i>permissão</i> <b>ON</b> <i>tabela</i> <b>TO</b> <i>utilizador(es)</i> [<b>WITH GRANT OPTION</b>]
+                </code>
+                <p><br>Nota: Se for especificada a opção WITH GRANT OPTION, o recetor da permissão fica com a possibilidade de a atribuir, por sua vez, a terceiros.</p>
+                <h3><br>REVOKE</h3>
+                <p>Este comando, que serve para remover permissões de um utilizador, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>REVOKE</b> <i>permissão</i> <b>ON</b> <i>tabela</i> <b>FROM</b> <i>utilizador(es)</i> [<b>RESTRICT | CASCADE</b>]
+                </code>
+                <p><br>Nota: As opções RESTRICT e CASCADE existem para evitar que o utilizador <i>User1</i> ceda uma permissão ao utilizador <i>User2</i> e que este, por sua vez, a ceda ao utilizador <i>User3</i>.</Sp>
+            </div>
+        </div>
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>Índices</b>
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p>
+                    Os índices consistem em criar uma estrutura adicional que permite simular a ordenação dos dados. Na realidade, baseia-se normalmente numa "árvore" de termos ou valores que apontam para uma determinada posição no ficheiro ou tabela.
+                </p>
+                <br>
+                <h2>Comandos</h2>
+                <h3>CREATE INDEX</h3>
+                <p>Este comando, que serve para criar um índice, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>CREATE [UNIQUE] INDEX</b> <i>nome</i> <b>ON</b> <i>tabela</i> (<i>coluna1</i> {<b>ASC | DESC</b>}, <i>coluna2</i>, ...)
+                </code>
+                <h3><br>DROP INDEX</h3>
+                <p>Este comando, que serve para apagar um índice, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>DROP INDEX</b> <i>nome</i> <b>ON</b> <i>tabela</i>
+                </code>
+            </div>
+        </div>
+        <div class="accordion">
+            <button class="accordion-header">
+                <span>
+                    <b>Views</b>
+                </span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+
+            <div class="accordion-body">
+                <p>
+                    Uma view é uma forma diferente de se ter acesso a uma tabela ou a um conjunto de tabelas. Na realidade, consiste num comando SELECT realizado sobre tabelas ou outras views. Uma view, para todos os efeitos, é uma tabela virtual.
+                </p>
+                <h2><br>Comandos</h2>
+                <h3>CREATE VIEW</h3>
+                <p>Este comando, que serve para criar uma view, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>CREATE VIEW</b> <i>nome_da_view</i>[ (Lista de Colunas) ] <b>AS</b> <i>comando_SELECT</i> [<b>WITH CHECK OPTION</b>]
+                </code>
+                <p><br>Nota: A cláusula WITH CHECK OPTION existe para evitar que uma view possa manipular registos fora dos seus limites de definição.</p>
+                <h3><br>DROP VIEW</h3>
+                <p>Este comando, que serve para apagar uma view, tem a seguinte sintaxe:</p>
+                <code>
+                    <b>DROP VIEW</b> <i>nome_da_view</i>
+                </code>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

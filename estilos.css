@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 50vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #6366f1;
+}
+.title{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+    background-color: #6366f1;
+}
+p{
+    text-align: justify;
+}
+h1{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 90vw;
+    z-index: 1;
+}
+
+.accordion {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.accordion-header span {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.accordion-body {
+    color: #000000;
+    font-size: 14px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .3s;
+}
+
+.accordion-body.active {
+    height: 100%;
+    opacity: 1;
+    padding: 5px 0px;
+}
+
+.arrow {
+    transition: transform .2s linear;
+}
+
+.accordion:has(.active) .arrow {
+    transform: rotate(180deg);
+}
+/* Estilo básico da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  
+  /* Estilo das células da tabela */
+  td, th {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  /* Cor de fundo para as células do cabeçalho */
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Alterna a cor de fundo das linhas */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Realça a cor de fundo da linha quando passa o mouse sobre ela */
+  tr:hover {
+    background-color: #e6e6e6;
+  }
+  .accordeao {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .ativo, .accordeao:hover {
+    background-color: #ccc;
+  }
+  
+  .accordeao:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .ativo:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  code{
+    font-family: monospace;
+    height: 10%;
+  }
